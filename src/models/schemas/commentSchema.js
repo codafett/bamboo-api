@@ -1,23 +1,17 @@
 import mongoose from 'mongoose';
-import commentSchema from './commentSchema';
-
 const { Schema } = mongoose;
 
 // Define our model
-const productSchema = new Schema({
-  name: {
+const commentSchema = new Schema({
+  comment: {
     type: String,
-    unique: true,
     lowercase: true,
     required: true,
   },
-  price: {
+  username: {
     type: String,
     required: true,
   },
-  comments: {
-    type: [commentSchema]
-  }
 });
 
-export default productSchema;
+export default commentSchema;
