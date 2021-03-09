@@ -16,7 +16,7 @@ const { default: ProductRouter } = require('./src/routes/ProductRouter');
  
 const cors = corsMiddleware({
   preflightMaxAge: 5, //Optional
-  origins: ['http://localhost:3001', 'localhost:3001', 'http://localhost:3001/'], // [/^https?:\/\/localhost(:[\d]+)?$/, 'http://localhost:3001'],
+  origins: [/^https?:\/\/localhost(:[\d]+)?$/],
   allowHeaders: ['API-Token'],
   exposeHeaders: ['API-Token-Expiry', 'Access-Control-Allow-Origin'],
 });
