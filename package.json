@@ -17,7 +17,8 @@
     "mongoose": "^5.11.18",
     "morgan": "~1.9.1",
     "restify": "^8.5.1",
-    "restify-cors-middleware": "^1.1.1"
+    "restify-cors-middleware": "^1.1.1",
+    "socket.io": "^3.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
