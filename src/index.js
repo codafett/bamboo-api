@@ -1,7 +1,7 @@
 var restify = require('restify');
 var socketio = require('socket.io')(80);
-const { default: configureDb } = require('./src/db/db');
-const { default: createLogger } = require('./src/utils/logger/Logger');
+const { default: configureDb } = require('./db/db');
+const { default: createLogger } = require('./utils/logger/Logger');
 
 const logger = createLogger('server');
 
@@ -12,7 +12,7 @@ var io = socketio.listen(server.server);
 configureDb();
 
 const corsMiddleware = require('restify-cors-middleware');
-const { default: ProductRouter } = require('./src/routes/ProductRouter');
+const { default: ProductRouter } = require('./routes/ProductRouter');
  
 const cors = corsMiddleware({
   preflightMaxAge: 5, //Optional

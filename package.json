@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec babel-node ./index.js"
+    "compile": "babel --presets=@babel/env -d lib/ src/",
+    "start": "nodemon --exec babel-node ./src/index.js",
+    "start:prod": "node lib/index.js NODE_ENV=production LOG_LEVEL=debug",
+    "docker:build": "docker-compose -f docker-compose.yml build",
+    "docker:up": "docker-compose -f docker-compose.yml up"
   },
   "dependencies": {
+    "@babel/runtime": "^7.13.10",
     "bluebird": "^3.7.2",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",

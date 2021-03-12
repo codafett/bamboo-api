@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  bamboo-api:
+    image: bamboo-api
+    container_name: bamboo-api
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - 'JWT_TOKEN_SECRET=@£%2tq4Q£43qy'
+      - DB=mongodb://bamboo-db:27017/bamboo
+      - LOG_LEVEL=debug
+    volumes:
+      - ~//data:/app/data/
+  bamboo-db:
+    container_name: bamboo-db
+    image: mongo
+    ports:
+      - "27017:27017"
+networks:
+  default:
+    external:
+      name: bamboo
